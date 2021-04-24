@@ -41,7 +41,7 @@
             <div class="mx-auto" style="width:50%"> 
                 <form action="{{ route('search')}}" action='get'>
                     <div class="form-group">
-                      <input type="text" class="form-control" id="exampleInputEmail1" name="k" aria-describedby="emailHelp" placeholder="Enter email">
+                      <input type="text" class="form-control" id="exampleInputEmail1" name="k" aria-describedby="emailHelp" placeholder="Enter keyword..">
                     </div>
                   </form>
             </div>
