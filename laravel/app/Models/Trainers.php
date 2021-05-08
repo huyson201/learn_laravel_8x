@@ -9,4 +9,16 @@ class Trainers extends Model
 {
     use HasFactory;
     protected $table = 'trainers';
+
+    public function search($key)
+    {
+            $trainers = $this::query()
+                        ->where('trainer_name','LIKE', "%{$key}%")
+                        ->orWhere('trainer_phone','LIKE',"%{$key}%")
+                        ->orWhere('trainer_email','LIKE',"%{$key}%")
+                        ->paginate(15);
+        
+            return $trainers;
+            //return $key;
+    }
 }
