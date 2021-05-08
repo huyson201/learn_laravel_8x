@@ -17,7 +17,7 @@ class Trainers extends Model
                         ->orWhere('trainer_phone','LIKE',"%{$key}%")
                         ->orWhere('trainer_email','LIKE',"%{$key}%")
                         ->paginate(15);
-        
+            $trainers->withPath(route('search') . "?k=" . str_replace(' ','+',$key));
             return $trainers;
             //return $key;
     }
