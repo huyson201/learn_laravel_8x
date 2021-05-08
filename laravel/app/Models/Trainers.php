@@ -12,7 +12,7 @@ class Trainers extends Model
 
     public function search($key)
     {
-            $trainers = $this::query()
+            $trainers = $this->query()
                         ->where('trainer_name','LIKE', "%{$key}%")
                         ->orWhere('trainer_phone','LIKE',"%{$key}%")
                         ->orWhere('trainer_email','LIKE',"%{$key}%")

@@ -22,7 +22,7 @@ class CompaniesSeeder extends Seeder
                 'company_address' => 'Thu Duc city ' . $i,
                 'company_code' => '012547' . $i,
                 'company_phone' => '01230123' .$i,
-                'category_id' => rand(0,9)
+                'category_id' => rand(1,9)
             ]);
         }
 

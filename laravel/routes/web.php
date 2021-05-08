@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TrainersController;
@@ -24,4 +25,6 @@ Route::get('/', function () {
 Route::get('/companies',[CompaniesController::class,'index']);
 Route::get('/trainers',[TrainersController::class,'index']);
 Route::get('/search',[SearchController::class,'search'])->name('search');
-
+Route::get('/categories',[CategoriesController::class,'index'])->name('categories');
+Route::get('/categories/{name}',[CategoriesController::class,'detail'])->where('name','([A-za-z0-9])+');
+Route::get('/search-companies',[SearchController::class,'searchCompanies'])->name('searchCompanies');
