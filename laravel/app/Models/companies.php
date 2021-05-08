@@ -9,4 +9,9 @@ class companies extends Model
 {
     use HasFactory;
     protected $table = 'companies';
+
+    public function getCompanies(){
+       $companies =  $this->paginate(15);
+       return $companies;
+    }
 }

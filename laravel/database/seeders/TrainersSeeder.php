@@ -14,6 +14,7 @@ class TrainersSeeder extends Seeder
      */
     public function run()
     {
+        
         //
         for($i = 0; $i < 10000; $i++){
             DB::table('trainers')->insert([

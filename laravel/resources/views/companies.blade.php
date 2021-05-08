@@ -57,7 +57,6 @@
                     <td>{!! $item->company_address !!}</td>
                     <td>{!! $item->company_code !!}</td>
                     <td>{!! $item->company_phone !!}</td>
-                    <td>{!! $item->company_name !!}</td>
                   </tr>
                   @endforeach       
                 </tbody>
