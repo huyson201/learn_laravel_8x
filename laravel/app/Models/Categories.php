@@ -9,13 +9,15 @@ class Categories extends Model
 {
     use HasFactory;
     protected $table = 'Categories';
-    public function getAllCategories(){
+    public function getAllCategories()
+    {
         $categories = $this->all();
         return $categories;
     }
 
-    public function getPluckCategories(){
-        $categories = $this->pluck( 'category_name','category_id');
+    public function getPluckCategories()
+    {
+        $categories = $this->pluck('category_name', 'category_id');
         return $categories;
     }
 }

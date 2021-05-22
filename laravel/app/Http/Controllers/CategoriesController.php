@@ -12,7 +12,7 @@ class CategoriesController extends Controller
     //
     function index(){
         $categoriesModel = new Categories();
-        $categories = $categoriesModel->getCategories();
+        $categories = $categoriesModel->getAllCategories();
         return view('categories',[
             'categories' => $categories
         ]);
