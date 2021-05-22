@@ -21,21 +21,21 @@
         </style>
     </head>
     <body>
-    
+
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
           <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
           <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="#">Companies</a>
             <a class="p-2 text-dark" href="#">Trainers</a>
             <a class="p-2 text-dark" href="{{ route('search') }}">Search</a>
-            
+
           </nav>
-          
+
         </div>
-        
+
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
           <h1 class="display-4">List of companies</h1>
-        </div>     
+        </div>
         <div class="container">
             <table class="table table-dark">
                 <thead>
@@ -45,6 +45,7 @@
                     <th scope="col">Trainer Email</th>
                     <th scope="col">Trainer Phone</th>
                     <th scope="col">Company Id</th>
+                    <th scope="col">Company Name</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -55,14 +56,15 @@
                     <td>{!! $item->trainer_email !!}</td>
                     <td>{!! $item->trainer_phone !!}</td>
                     <td>{!! $item->company_id !!}</td>
+                    <td>{!! $item->companyRelation->company_name!!}</td>
                   </tr>
-                  @endforeach       
+                  @endforeach
                 </tbody>
               </table>
               @if(method_exists($trainers,'render'))
                 {!! $trainers->render() !!}
               @endisset
-           
+
           <footer class="pt-4 my-md-5 pt-md-5 border-top">
             <div class="row">
               <div class="col-12 col-md">
@@ -101,8 +103,8 @@
             </div>
           </footer>
         </div>
-    
-        
+
+
 
     </body>
 </html>

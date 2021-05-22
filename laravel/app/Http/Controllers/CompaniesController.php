@@ -9,8 +9,8 @@ class CompaniesController extends Controller
 {
     //
     public function index(){
-        $companiesOject = new Companies();
-        $companies = $companiesOject->getCompanies();
+        $companiesObject = new Companies();
+        $companies = $companiesObject->paginate(15);
         return view('companies', ['companies'=> $companies]);
     }
 }

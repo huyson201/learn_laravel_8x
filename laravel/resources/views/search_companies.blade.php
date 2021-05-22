@@ -57,6 +57,7 @@
                     <th scope="col">Company Address</th>
                     <th scope="col">Company Code</th>
                     <th scope="col">Company Phone</th>
+                    <th scope="col">Category Name</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -68,6 +69,7 @@
                     <td>{!! $item->company_address !!}</td>
                     <td>{!! $item->company_code !!}</td>
                     <td>{!! $item->company_phone !!}</td>
+                    <td>{!! $item->categoryRelation[0]->category_name!!}</td>
                   </tr>
                   @endforeach
                 </tbody>

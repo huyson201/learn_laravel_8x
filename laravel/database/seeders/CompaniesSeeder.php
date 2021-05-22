@@ -15,7 +15,7 @@ class CompaniesSeeder extends Seeder
     {
         //
 
-        for($i = 0; $i < 100; $i++){
+        for($i = 0; $i < 10; $i++){
             DB::table('companies')->insert([
                 'company_name' => 'company ' . $i,
                 'company_web' => 'web ' . $i,

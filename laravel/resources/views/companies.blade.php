@@ -21,21 +21,21 @@
         </style>
     </head>
     <body>
-        
+
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
           <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
           <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="/companies">Companies</a>
             <a class="p-2 text-dark" href="/trainers">Trainers</a>
             <a class="p-2 text-dark" href="#">Search</a>
-            
+
           </nav>
-          
+
         </div>
-        
+
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
           <h1 class="display-4">List of companies</h1>
-        </div>     
+        </div>
         <div class="container">
             <table class="table table-dark">
                 <thead>
@@ -46,10 +46,12 @@
                     <th scope="col">Company Address</th>
                     <th scope="col">Company Code</th>
                     <th scope="col">Company Phone</th>
+                    <th scope="col">Trainer Name</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach ($companies as $item)
+
                   <tr>
                     <th scope="row">{!! $item->company_id !!}</th>
                     <td>{!! $item->company_name !!}</td>
@@ -57,13 +59,14 @@
                     <td>{!! $item->company_address !!}</td>
                     <td>{!! $item->company_code !!}</td>
                     <td>{!! $item->company_phone !!}</td>
+                    <td>{!! $item->getCompaniesRelation->trainer_name!!}</td>
                   </tr>
-                  @endforeach       
+                  @endforeach
                 </tbody>
               </table>
               {{-- pagination control --}}
               {!! $companies->render() !!}
-           
+
           <footer class="pt-4 my-md-5 pt-md-5 border-top">
             <div class="row">
               <div class="col-12 col-md">
@@ -102,8 +105,8 @@
             </div>
           </footer>
         </div>
-    
-        
+
+
 
     </body>
 </html>

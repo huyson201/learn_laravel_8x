@@ -4,15 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-class companies extends Model
+use App\Models\Trainers;
+class Companies extends Model
 {
     use HasFactory;
     protected $table = 'companies';
+    protected $primaryKey = "company_id";
 
     public function getCompanies(){
        $companies =  $this->paginate(15);
        return $companies;
+    }
+
+    public function getCompaniesRelation(){
+        return $this->hasOne(Trainers::class, 'company_id',"company_id");
+    }
+
+    public function categoryRelation(){
+        return $this->hasMany(Categories::class, "category_id");
     }
 
     public function search($key,$categoryName){
@@ -31,4 +40,5 @@ class companies extends Model
         $result->withPath(route('searchCompanies') . "?k=" . str_replace(' ','+',$key));
         return $result;
     }
+
 }
