@@ -16,14 +16,17 @@ class companies extends Model
     }
 
     public function search($key,$categoryName){
-        $result = $this->query()
-            ->where('company_name','LIKE', "%{$key}%")
-            ->Where('category_id','=', $categoryName)
-            ->orWhere('company_phone','LIKE',"%{$key}%")
-            ->orWhere('company_web','LIKE',"%{$key}%")
-            ->orWhere('company_address','LIKE',"%{$key}%")
-            ->orWhere('company_code','LIKE',"%{$key}%")    
-            ->paginate(15);
+        $result = $this ->where('company_name','LIKE', "%{$key}%")
+                        ->where('category_id',$categoryName)
+                        ->orWhere('company_phone','LIKE',"%{$key}%")
+                        ->where('category_id',$categoryName)
+                        ->orWhere('company_web','LIKE',"%{$key}%")
+                        ->where('category_id',$categoryName)
+                        ->orWhere('company_address','LIKE',"%{$key}%")
+                        ->where('category_id',$categoryName)
+                        ->orWhere('company_code','LIKE',"%{$key}%")
+                        ->where('category_id',$categoryName)
+                        ->paginate(15);
 
         $result->withPath(route('searchCompanies') . "?k=" . str_replace(' ','+',$key));
         return $result;

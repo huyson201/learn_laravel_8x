@@ -15,10 +15,10 @@ class SearchController extends Controller
 
         if($request->input('k')){
             $key = $request->input('k');
-            $trainers = new Trainers();      
-            $result = $trainers->search($key);    
+            $trainers = new Trainers();
+            $result = $trainers->search($key);
             return view('search',[
-                'result' => $result, 
+                'result' => $result,
                 'key' => $key,
                 'categories' => $categories
                 ]);
@@ -30,19 +30,19 @@ class SearchController extends Controller
         $categoryModel = new Categories();
         $categories = $categoryModel->getPluckCategories();
 
-        if($request->input('k') && $request->input('categoryName')){
+        if($request->input('k') || $request->input('categoryName')){
             $key = $request->input('k');
             $categoryName = $request->input('categoryName');
-
             $companyModel = new Companies();
             $result = $companyModel->search($key, $categoryName);
 
             return view('search_companies',[
-                'companies' => $result, 
+                'companies' => $result,
                 'key' => $key,
                 'categories' => $categories
                 ]);
         }
+        
         return view('search_companies',['categories' => $categories]);
     }
 

@@ -21,33 +21,33 @@
         </style>
     </head>
     <body>
-        
+
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
           <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
           <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="/companies">Companies</a>
             <a class="p-2 text-dark" href="/trainers">Trainers</a>
             <a class="p-2 text-dark" href="#">Search</a>
-            
+
           </nav>
-          
+
         </div>
-        
+
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
           <h1 class="display-4">List of companies</h1>
-        </div>     
+        </div>
         <div class="container">
-            <div class="mx-auto my-3" style="width:50%"> 
+            <div class="mx-auto my-3" style="width:50%">
               <form action="{{ route('searchCompanies')}}" action='get'>
                   <div class="form-group">
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="k" aria-describedby="emailHelp" placeholder="Enter keyword..">
-                  {!!Form::select('categoryName', $categories, $categories, ['class' => 'form-control my-3', 'id' => 'selection','style'])!!}   
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="k" aria-describedby="emailHelp" placeholder="Enter keyword.. <?php  ?>">
+                  {!!Form::select('categoryName', $categories, $categories, ['class' => 'form-control my-3', 'id' => 'selection','style'])!!}
                   </div>
                   <button type="submit" class="btn btn-primary">Search</button>
                 </form>
             </div>
 
-            @isset($key)           
+            @isset($companies)
             <table class="table table-dark">
                 <thead>
                   <tr>
@@ -69,7 +69,7 @@
                     <td>{!! $item->company_code !!}</td>
                     <td>{!! $item->company_phone !!}</td>
                   </tr>
-                  @endforeach       
+                  @endforeach
                 </tbody>
               </table>
               {{-- pagination control --}}
