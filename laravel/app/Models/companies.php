@@ -41,4 +41,8 @@ class Companies extends Model
         return $result;
     }
 
+    public function category(){
+        return $this->morphMany(Categories::class, "category");
+    }
+
 }

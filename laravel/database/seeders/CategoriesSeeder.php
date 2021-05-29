@@ -17,7 +17,8 @@ class CategoriesSeeder extends Seeder
         for($i = 0; $i < 10; $i++){
             DB::table('categories')->insert(
                 [
-                    "category_name" => "category $i"
+                    "category_name" => "category $i",
+                    "category_type" => "$i"
                 ]
             );
         }

@@ -9,6 +9,7 @@ class Categories extends Model
 {
     use HasFactory;
     protected $table = 'Categories';
+
     public function getAllCategories()
     {
         $categories = $this->all();
@@ -19,5 +20,9 @@ class Categories extends Model
     {
         $categories = $this->pluck('category_name', 'category_id');
         return $categories;
+    }
+
+    public function category(){
+        return $this->morphTo();
     }
 }
