@@ -1,0 +1,14 @@
+﻿a) SELECT * FROM users JOIN `type` TO users.type_id = type.type_id WHERE type_name = "Giảng viên"
+b) SELECT * FROM users JOIN `type` TO users.type_id = type.type_id WHERE type_name = "Sinh Viên"
+c) SELECT * FROM courses
+d) SELECT * FROM courses JOIN class to courses.course_id = class.course_id
+						 WHERE class_users.teacher_id INTO( (SELECT users.user_id FROM users WHERE users.user_name = "Nguyễn Văn A"))
+						 GROUP BY courses.course_name
+						 
+e) SELECT * FROM users JOIN class to users.user_id = class_users.user_id
+					   JOIN courses to courses.course_id = class.course_id
+					   WHERE class_users.teacher_id INTO( (SELECT users.user_id FROM users WHERE users.user_name = "Nguyễn Văn A"))
+					   AND courses.course_semester = 1 AND courses.course_year = "2020-2021"; 
+f)
+g)SELECT * FROM diary JOIN users to diary.user_id = users.user_id WHERE users.user_name = "Nguyễn Văn A"
+
