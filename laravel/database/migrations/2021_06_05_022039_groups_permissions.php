@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Categories extends Migration
+class GroupsPermissions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class Categories extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('categories', function (Blueprint $table) {
-            $table->increments('category_id')->nullable(false);
-            $table->string('category_name');
+        Schema::create('groups_permissions', function (Blueprint $table) {
+            $table->integer("permission_id");
+            $table->integer("group_id");
+            $table->primary(array("permission_id","group_id"));
             $table->string('status')->default("");
             $table->timestamps();
             $table->softDeletes();
@@ -30,7 +30,6 @@ class Categories extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('groups_permissions');
     }
 }

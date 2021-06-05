@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-class CategoriesSeeder extends Seeder
+class UsersHasPermissionsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,11 +15,13 @@ class CategoriesSeeder extends Seeder
     {
         //
         for($i = 0; $i < 10; $i++){
-            DB::table('categories')->insert(
+            DB::table('users_has_permissions')->insert(
                 [
-                    "category_name" => "category $i"
+                    "user_id" => 1,
+                    "permission_id" => ($i + 1)
                 ]
             );
         }
     }
+
 }

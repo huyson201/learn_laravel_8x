@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Categories extends Migration
+class UsersHasPermissions extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,10 @@ class Categories extends Migration
     public function up()
     {
         //
-        Schema::create('categories', function (Blueprint $table) {
-            $table->increments('category_id')->nullable(false);
-            $table->string('category_name');
-            $table->string('status')->default("");
+        Schema::create('users_has_permissions', function (Blueprint $table) {
+            $table->integer('user_id');
+            $table->integer('permission_id');
+            $table->string("status")->default("");
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +31,6 @@ class Categories extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('users_has_permissions');
     }
 }

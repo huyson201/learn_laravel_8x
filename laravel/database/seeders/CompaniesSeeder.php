@@ -17,14 +17,14 @@ class CompaniesSeeder extends Seeder
 
         for($i = 0; $i < 10; $i++){
             DB::table('companies')->insert([
-                'company_name' => 'company ' . $i,
-                'company_web' => 'web ' . $i,
-                'company_address' => 'Thu Duc city ' . $i,
+                'company_name' => 'company ' . ($i + 1),
+                'company_web' => 'web ' . ($i + 1),
+                'company_address' => 'Thu Duc city ' . ($i + 1),
                 'company_code' => '012547' . $i,
-                'company_phone' => '01230123' .$i,
-                'category_id' => rand(1,9)
+                'company_phone' => '01230123' .$i
             ]);
         }
 
     }
+
 }

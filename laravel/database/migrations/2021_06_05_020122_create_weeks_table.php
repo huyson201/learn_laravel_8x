@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Categories extends Migration
+class CreateWeeksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class Categories extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('categories', function (Blueprint $table) {
-            $table->increments('category_id')->nullable(false);
-            $table->string('category_name');
-            $table->string('status')->default("");
+        Schema::create('weeks', function (Blueprint $table) {
+            $table->id('week_id');
+            $table->integer('week_weekdays');
+            $table->integer('status_check');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->integer('diary_id',false);
+            $table->string('status',55);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,7 +33,6 @@ class Categories extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('weeks');
     }
 }

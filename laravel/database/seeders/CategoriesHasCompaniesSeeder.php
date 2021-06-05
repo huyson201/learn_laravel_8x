@@ -4,7 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-class CategoriesSeeder extends Seeder
+
+class CategoriesHasCompaniesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,13 +14,15 @@ class CategoriesSeeder extends Seeder
      */
     public function run()
     {
-        //
+
         for($i = 0; $i < 10; $i++){
-            DB::table('categories')->insert(
+            DB::table('categories_has_companies')->insert(
                 [
-                    "category_name" => "category $i"
+                    "category_id" => ($i + 1),
+                    "companies_id" => 1
                 ]
             );
         }
+
     }
 }

@@ -15,11 +15,12 @@ class Trainers extends Migration
     {
         //
         Schema::create('trainers', function (Blueprint $table) {
-            $table->increments('trainer_id');
-            $table->string('trainer_name',55);
-            $table->string('trainer_phone',55);
-            $table->string('trainer_email',55);
+            $table->integer('user_id')->primary();
             $table->integer('company_id');
+            $table->integer('is_leader')->default(0);
+            $table->string("status")->default("");
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

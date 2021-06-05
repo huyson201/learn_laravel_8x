@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Categories extends Migration
+class CategoriesHasCompanies extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,11 @@ class Categories extends Migration
     public function up()
     {
         //
-        Schema::create('categories', function (Blueprint $table) {
-            $table->increments('category_id')->nullable(false);
-            $table->string('category_name');
-            $table->string('status')->default("");
+        Schema::create('categories_has_companies', function (Blueprint $table) {
+            $table->integer("category_id")->unsigned();
+            $table->integer("companies_id")->unsigned();
+            $table->string("status")->default("");
+            $table->primary(["category_id", "companies_id"]);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +32,6 @@ class Categories extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('categories_has_companies');
     }
 }
