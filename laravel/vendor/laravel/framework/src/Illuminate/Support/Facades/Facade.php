@@ -49,7 +49,7 @@ abstract class Facade
      */
     public static function spy()
     {
-        if (! static::isMock()) {
+        if (!static::isMock()) {
             $class = static::getMockableClass();
 
             return tap($class ? Mockery::spy($class) : Mockery::spy(), function ($spy) {
@@ -84,8 +84,8 @@ abstract class Facade
         $name = static::getFacadeAccessor();
 
         $mock = static::isMock()
-                    ? static::$resolvedInstance[$name]
-                    : static::createFreshMockInstance();
+            ? static::$resolvedInstance[$name]
+            : static::createFreshMockInstance();
 
         return $mock->shouldReceive(...func_get_args());
     }
@@ -126,7 +126,7 @@ abstract class Facade
         $name = static::getFacadeAccessor();
 
         return isset(static::$resolvedInstance[$name]) &&
-               static::$resolvedInstance[$name] instanceof MockInterface;
+            static::$resolvedInstance[$name] instanceof MockInterface;
     }
 
     /**
@@ -254,10 +254,10 @@ abstract class Facade
     {
         $instance = static::getFacadeRoot();
 
-        if (! $instance) {
+        if (!$instance) {
             throw new RuntimeException('A facade root has not been set.');
         }
-
+        
         return $instance->$method(...$args);
     }
 }

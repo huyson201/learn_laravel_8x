@@ -74,7 +74,7 @@ class DatabaseUserProvider implements UserProvider
         );
 
         return $user && $user->getRememberToken() && hash_equals($user->getRememberToken(), $token)
-                    ? $user : null;
+            ? $user : null;
     }
 
     /**
@@ -87,8 +87,8 @@ class DatabaseUserProvider implements UserProvider
     public function updateRememberToken(UserContract $user, $token)
     {
         $this->conn->table($this->table)
-                ->where($user->getAuthIdentifierName(), $user->getAuthIdentifier())
-                ->update([$user->getRememberTokenName() => $token]);
+            ->where($user->getAuthIdentifierName(), $user->getAuthIdentifier())
+            ->update([$user->getRememberTokenName() => $token]);
     }
 
     /**
@@ -99,9 +99,11 @@ class DatabaseUserProvider implements UserProvider
      */
     public function retrieveByCredentials(array $credentials)
     {
-        if (empty($credentials) ||
-           (count($credentials) === 1 &&
-            array_key_exists('password', $credentials))) {
+        if (
+            empty($credentials) ||
+            (count($credentials) === 1 &&
+                array_key_exists('password', $credentials))
+        ) {
             return;
         }
 
@@ -120,6 +122,8 @@ class DatabaseUserProvider implements UserProvider
             } else {
                 $query->where($key, $value);
             }
+
+           
         }
 
         // Now we are ready to execute the query to see if we have an user matching
@@ -138,7 +142,7 @@ class DatabaseUserProvider implements UserProvider
      */
     protected function getGenericUser($user)
     {
-        if (! is_null($user)) {
+        if (!is_null($user)) {
             return new GenericUser((array) $user);
         }
     }
@@ -153,7 +157,8 @@ class DatabaseUserProvider implements UserProvider
     public function validateCredentials(UserContract $user, array $credentials)
     {
         return $this->hasher->check(
-            $credentials['password'], $user->getAuthPassword()
+            $credentials['password'],
+            $user->getAuthPassword()
         );
     }
 }

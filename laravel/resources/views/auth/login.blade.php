@@ -11,7 +11,7 @@
                         <form method="POST" action="{{ route('login.custom') }}">
                             @csrf
                             <div class="form-group mb-3">
-                                <input type="text" placeholder="Email" id="email" class="form-control" name="user_email" required
+                                <input type="text" placeholder="Email" id="email" class="form-control" name="email" required
                                     autofocus>
                                 @if ($errors->has('user_email'))
                                 <span class="text-danger">{{ $errors->first('user_email') }}</span>

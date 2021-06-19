@@ -44,7 +44,7 @@ class User extends Authenticatable
 
 
 
-   
+
 
     /**
      * Get the password for the user.
@@ -55,4 +55,6 @@ class User extends Authenticatable
     {
         return $this->user_password;
     }
+
+   
 }

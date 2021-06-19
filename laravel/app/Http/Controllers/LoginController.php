@@ -26,13 +26,13 @@ class LoginController extends Controller
     function customLogin(Request $request)
     {
         $request->validate([
-            'user_email'     =>  'required',
+            'email'     =>  'required',
             'password'  =>  'required'
         ]);
 
-        $credentials = $request->only('user_email', 'password');
+        $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt(['user_email' => $credentials['email'], 'password' => $credentials['password']])) {
             return redirect()->intended('dashboard')->withSuccess("Signed in");
         }
 
@@ -57,7 +57,7 @@ class LoginController extends Controller
     public function dashboard()
     {
         if (Auth::check()) {
-            return view('dashboard');
+            return view('auth.admin');
         }
 
         return redirect('login')->withSuccess('You are not allowed to access');
@@ -80,5 +80,8 @@ class LoginController extends Controller
         return redirect('login');
     }
 
-
+    function username()
+    {
+        return 'user_mail';
+    }
 }
