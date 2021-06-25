@@ -1,5 +1,9 @@
 <?php
+
 namespace App\Providers;
+
+use RuntimeException;
+
 class MyFacade
 {
     /**
@@ -28,7 +32,7 @@ class MyFacade
     }
 
 
-     /**
+    /**
      * Handle dynamic, static calls to the object.
      *
      * @param  string  $method
@@ -47,6 +51,4 @@ class MyFacade
 
         return $instance->$method(...$args);
     }
-
-
 }

@@ -14,6 +14,7 @@ class MyUser extends MyFacade
      */
     public static function getFacadeAccessor()
     {
+
         return 'UserService';
     }
 }
